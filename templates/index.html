@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Price Search</title>
+</head>
+<body>
+    <h1>Food Price Search</h1>
+    <form method="post">
+        <label for="food_item">Enter food item:</label>
+        <input type="text" id="food_item" name="food_item">
+        <input type="submit" value="Search">
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Merchant</th>
+                <th>URL</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.merchant }}</td>
+                <td><a href="{{ result.url }}">{{ result.url }}</a></td>
+                <td>{{ result.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
